@@ -1,6 +1,7 @@
 ИНСТРУКЦИЯ 
 pip3 instal colorama
 pip3 install vk_api
+pip3 install numpy
 git clone https://github.com/kotik06/botvk
 cd botvk
 python3 botbilder.py

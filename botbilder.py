@@ -101,7 +101,6 @@ while True:
             else:
                 vk.method("messages.send", {"peer_id": id, "message": "я не знаю что значит " + str(body.lower()), "random_id": random.randint(1, 21474>
 
-
     except Exception as E:
         time.sleep(1)""")
         n.close()

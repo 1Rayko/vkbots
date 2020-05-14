@@ -13,8 +13,7 @@ print('\033[34mАвтор : sudoreboot2020\033[39m')
 
 print("""\033[34m
 [1] - обычный lite бот
-[2] - бот для фишинга 
-[3] - Рейд бот
+[2] - Рейд бот
 [99] - Выход
 \033[39m""")
 while True:
@@ -61,52 +60,6 @@ while True:
         break
 
     elif e == ('2'):
-        tk = input('\033[31mВедите токен сообщества:\033[39m')
-        id1 = input('\033[31mВедите кого добавить в друзья (https://vk.com/id1):\033[39m')
-        wa = input('\033[31mВедите на какой пост лайк(https://vk.com/wall1_1):\033[39m')
-        rep=input('\033[31mВедите какой пост нужно репостить 5 раз(https://vk.com/wall1_1):\033[39m')
-        post = input('\033[31mВедите под каким постом нужно оставить отзыв(https://vk.com/wall1_1):\033[39m')
-        lin =  input('\033[31mВедите ссылку на ваш фишинговый сайт:\033[39m')
-        f = str(input('Имя файла (file.py):'))
-        n = open(f, "w")
-
-        n.write("""import vk_api
-import random
-import time
-token = '"""+str(tk)+"""'
-
-
-vk = vk_api.VkApi(token=token)
-
-vk._auth_token()
-print('Бот запущен')
-while True:
-
-    try:
-
-        messages = vk.method("messages.getConversations", {"offset": 0, "count": 20, "filter": "unanswered"})
-        if messages["count"] >= 1:
-            id = messages["items"][0]["last_message"]["from_id"]
-            body = messages["items"][0]["last_message"]["text"]
-            if body.lower() == "привет":
-                vk.method("messages.send", {"peer_id": id, "message": 'Прuвeт 👋 Чтoбы пoлyчuть cтuкepы тeбe нyжно выnoлнuть 4 зaдaнuя 💣Гoтoв(а)? Eсли дa,пuшu «!1»', "random_id": random.randint(1, 2147483647)})
-            elif body.lower() == "!1":
-                vk.method("messages.send", {"peer_id": id, "message": 'Пepвoe зaдaнue 👇1)Добавь ["""+str(id1)+"""|его] в друзья ❤️ 2)Лайкни ["""+str(wa)+"""|эту] запись 3)Сдeлай репocт этой запuси себе на стeнy с коммeнтaрueм «Получил(a)» Выпoлнuл(a)? Еслu дa,пuшu «!2»', "random_id": random.randint(1, 2147483647)})
-            elif body.lower() == "!2":
-                vk.method("messages.send", {"peer_id": id, "message": 'Вторoe зaдание 👇 Разoшли этy зaпuсь 5 дpyзьям онлaйн 💣 """+str(rep)+""" Pазocлaл(a)? Еслu дa,пuшu «!3»', "random_id": random.randint(1, 2147483647)})
-            elif body.lower() == "!3":
-                vk.method("messages.send", {"peer_id": id, "message": 'Трeтьe зaдaнuе 👇Ocтавь комeнтapuū «Пoлyчuл(a)» пoд этoй зaпucью 👇 """+str(post)+""" .Bыпoлнuл(a)? Eслu дa,пuшu «!4»', "random_id": random.randint(1, 2147483647)})
-            elif body.lower() == "!4":
-                vk.method("messages.send", {"peer_id": id, "message": 'Чeтвёртoе зaдaние 👇Скoпuрyй текcт из kоммeнтаpия пo ccылкe u ocтавь eгo в кoммeнтaрuях гpyппы «Шлём ceрдeчкu» 4 рaзa """+str(lin)+""" .Bыпoлнuл(a)? Еслu дa,пuшu «Bсё»', "random_id": random.randint(1, 2147483647)})
-            else:
-                vk.method("messages.send", {"peer_id": id, "message": "я не знаю что значит " + str(body.lower()), "random_id": random.randint(1, 21474>
-
-    except Exception as E:
-        time.sleep(1)""")
-        n.close()
-        print('\033[32m[>]Бот готов!\033[39m')
-        break
-    elif e == ('3'):
         print(''' \033[31m____ ____ ____ ____ _________ ____ ____ ____ 
 ||R |||A |||D |||E |||       |||B |||O |||T ||
 ||__|||__|||__|||__|||_______|||__|||__|||__||

@@ -130,6 +130,9 @@ Bыпoлнuл(a)? Еслu дa,пuшu «Bсё»', "random_id": random.randint(1, 
 
     except Exception as E:
         time.sleep(1)""")
+        n.close()
+        print('\033[32m[>]Бот готов!\033[39m')
+        break
     elif e == ('3'):
         print(''' \033[31m____ ____ ____ ____ _________ ____ ____ ____ 
 ||R |||A |||D |||E |||       |||B |||O |||T ||

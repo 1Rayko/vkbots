@@ -1,7 +1,7 @@
 import os,sys
 import colorama
 from colorama import init
-os.system('clear')
+os.system('cls')
 print("""\033[34m                                                                                
 ,-----.   ,-----. ,--------.    ,-----.  ,--.   ,--.,------.  ,------.,------.  
 |  |) /_ '  .-.  ''--.  .--'    |  |) /_ |  |   |  ||  .-.  \ |  .---'|  .--. ' 

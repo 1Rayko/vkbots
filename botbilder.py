@@ -24,7 +24,7 @@ while True:
 
 
         f = str(input('name file.py:'))
-        n = open(f,"w")
+        n = open(f,"w",encoding='utf-8')
 
         n.write("""import vk_api
 import random

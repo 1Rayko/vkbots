@@ -1,14 +1,22 @@
 # ИНСТРУКЦИЯ 
 
 pip3 instal colorama
+
 pip3 install vk_api
+
 pip3 install numpy
 pip3 install emoji
+
 git clone https://github.com/kotik06/botvk
+
 cd botvk
+
 python3 botbilder.py
+
 ВНИМАНИЕ _ БОТЫ БУДУТ РАБОТАТЬ ТОЛЬКО ПОСЛЕ ОБРАЩЕНИЯ К НИМ ЧЕРЕЗ @ В БЕСЕДЕ КОТОРУЮ ВЫ ХОТИТЕ ЗАРЕЙДИТЬ!
+
 Как подключить группу к программе:
+
 1) Создаём группу
 2) В разделе "Работа с api" в настройках группы получаем токен, лучше дать ему все возможности.
 3) Там же в подразделе longpoll api включаем longpoll, выставляем версию api 5.80

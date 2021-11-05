@@ -17,7 +17,7 @@ pkg install python git -y
 pip3 instal colorama vk_api numpy emoji
 ```
 ---
-## Клонирование репозитирия себе на устройство
+## Клонирование репозитория себе на устройство
 ```bash
 git clone https://github.com/kotik06/vkbots
 ``````

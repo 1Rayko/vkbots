@@ -1,19 +1,38 @@
-# ИНСТРУКЦИЯ 
-
-pip3 instal colorama
-
-pip3 install vk_api
-
-pip3 install numpy
-
-pip3 install emoji
-
-git clone https://github.com/kotik06/botvk
-
-cd botvk
-
+# VKBots - Утилита для создания ботов ВКонтакте 
+## Установка Python и Git 
+### Arch 
+```bash
+sudo pacman -S python git --noconfirm 
+```
+### Debian, Ubuntu
+```bash
+sudo apt install git python -y
+```
+### Termux
+```bash
+pkg install python git -y
+```
+## Установка pip зависимостей
+```
+pip3 instal colorama vk_api numpy emoji
+```
+---
+## Клонирование репозитирия себе на устройство
+```bash
+git clone https://github.com/kotik06/vkbots
+``````
+---
+## Запуск
+### Переход в директорию утилиты
+```bash
+cd vkbots
+```
+### Запуск скрипта
+```bash
 python3 botbilder.py
-
+```
+---
+```
 ВНИМАНИЕ _ БОТЫ БУДУТ РАБОТАТЬ ТОЛЬКО ПОСЛЕ ОБРАЩЕНИЯ К НИМ ЧЕРЕЗ @ В БЕСЕДЕ КОТОРУЮ ВЫ ХОТИТЕ ЗАРЕЙДИТЬ!
 
 Как подключить группу к программе:
@@ -24,4 +43,4 @@ python3 botbilder.py
 4) Во вкладке "Сообщения" настроек группы включаем сообщения, в подразделе "Настройки для бота" разрешаем добавлять сообщество в беседы.
 При создании мульти рейд бота не забудьте добавить токены и id
 python3 имя_файла_которое_указали.py
-(указывать только с расширением)
+(указывать только с расширением)```

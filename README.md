@@ -29,7 +29,7 @@ cd vkbots
 ```
 ### Запуск скрипта
 ```bash
-python3 botbilder.py
+python3 vkbots.py
 ```
 ---
 ```

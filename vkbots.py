@@ -25,7 +25,7 @@ baners = [
 
           ]
 print(random.choice(baners))
-print('\033[34mgithub.com/kotik06/vkbots\033[39m')
+print('\033[34mgithub.com/1Rayko/vkbots\033[39m')
 
 print("""\033[34m
 [1] - обычный lite бот
